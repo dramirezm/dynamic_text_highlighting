@@ -139,8 +139,8 @@ class DynamicTextHighlighting extends StatelessWidget {
       return TextSpan(
         text: value,
         style: style.copyWith(
-          color: Colors.black,
-          backgroundColor: color,
+          color: Colors.blue,
+          backgroundColor: Colors.transparent,
         ),
       );
     } else {
