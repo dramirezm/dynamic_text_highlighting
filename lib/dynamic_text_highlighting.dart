@@ -10,6 +10,7 @@ class DynamicTextHighlighting extends StatelessWidget {
   final Color color;
   final TextStyle style;
   final bool caseSensitive;
+  final Color mentionColor;
 
   //RichText
   final TextAlign textAlign;
@@ -33,7 +34,7 @@ class DynamicTextHighlighting extends StatelessWidget {
       color: Colors.black,
     ),
     this.caseSensitive = true,
-
+    this.mentionColor,
     //RichText
     this.textAlign = TextAlign.start,
     this.textDirection,
@@ -139,15 +140,16 @@ class DynamicTextHighlighting extends StatelessWidget {
       return TextSpan(
         text: value,
         style: style.copyWith(
-          color: Colors.blue,
-          backgroundColor: Colors.transparent,
+          color: mentionColor != null ? mentionColor : Colors.blue,
+          backgroundColor: color != null ? color : Colors.transparent,
         ),
       );
     } else {
       return TextSpan(
         text: value,
         style: style.copyWith(
-          backgroundColor: color,
+          backgroundColor: color != null ? color : Colors.transparent,
+          color: mentionColor != null ? mentionColor : Colors.blue,
         ),
       );
     }
